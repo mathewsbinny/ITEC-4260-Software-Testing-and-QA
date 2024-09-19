@@ -38,5 +38,6 @@
     <orderEntry type="library" name="fasterxml.jackson.core.databind" level="project" />
     <orderEntry type="library" name="commons.io" level="project" />
     <orderEntry type="library" name="apache.commons.csv" level="project" />
+    <orderEntry type="library" name="seleniumhq.selenium.java" level="project" />
   </component>
 </module>
