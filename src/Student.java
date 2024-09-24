@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.Validate;
+
 public class Student {
     private String name;
     private int id;
@@ -11,5 +13,9 @@ public class Student {
 
     public double getGPA() {
         return gpa;
+    }
+
+    public void enrollKinder(int age) {
+        Validate.isTrue(age >= 0 && age <= 5, "Too old for Kindergarten");
     }
 }
