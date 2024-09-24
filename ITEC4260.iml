@@ -40,5 +40,6 @@
     <orderEntry type="library" name="apache.commons.csv" level="project" />
     <orderEntry type="library" name="seleniumhq.selenium.java" level="project" />
     <orderEntry type="library" name="apache.commons.lang3" level="project" />
+    <orderEntry type="library" name="xerial.sqlite.jdbc" level="project" />
   </component>
 </module>
