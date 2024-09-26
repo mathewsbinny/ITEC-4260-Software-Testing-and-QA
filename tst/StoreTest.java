@@ -37,8 +37,8 @@ public class StoreTest {
     public void testFindCheapestGame() {
         Game cheapestGame = store.getInventory().findCheapestGame();
         assertNotNull(cheapestGame);
-        assertEquals("Lethal Company", cheapestGame.getName());
-        assertEquals(999, cheapestGame.getPrice());
+        assertEquals("Monster Hunter: World", cheapestGame.getName());
+        assertEquals(989, cheapestGame.getPrice());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class StoreTest {
     @Test
     public void testGetAveragePriceOfAllGames() {
         double averagePrice = store.getInventory().getAveragePriceOfAllGames();
-        assertEquals(29.99, averagePrice, 0.01);
+        assertEquals(26.62, averagePrice, 0.01);
     }
 }
 
