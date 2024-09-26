@@ -72,9 +72,17 @@ public class SteamJsonNode {
         return devs.toArray(new String[devs.size()]);
     }
 
+    /*
     public String getGameRating() {
         String rating = root.get(appID).get("data").get("ratings").get("esrb").get("rating").asText();
         return rating;
     }
+     */
+
+    /*
+    public int getGameRecommendationCount() {
+        return root.get(appID).get("data").get("price_overview").get("final").asInt();
+    }
+    */
 }
 

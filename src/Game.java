@@ -12,6 +12,7 @@ public class Game {
     private String[] genres;
     private int price;
     private String rating;
+    private int recommendationCount;
 
     public Game(String appID) {
         this.appID = appID;
@@ -22,7 +23,8 @@ public class Game {
         this.developers = root.getDevelopers();
         this.genres = root.getGenres();
         this.price = root.getGamePrice();
-        this.rating = root.getGameRating();
+        //this.rating = root.getGameRating();
+        //this.recommendationCount = root.getGameRecommendationCount();
     }
 
     public Game(String appID, String name, String[] platforms, String releaseDate, String[] developers, String[] genres, int price, String rating) {
@@ -33,7 +35,8 @@ public class Game {
         this.developers = developers;
         this.genres = genres;
         this.price = price;
-        this.rating = rating;
+        //this.rating = rating;
+        //this.recommendationCount = 0;
     }
 
     public String getAppID() {
@@ -68,6 +71,10 @@ public class Game {
         return rating;
     }
 
+    public int getRecommendationCount() {
+        return recommendationCount;
+    }
+
     public void setAppID(String appID) {
         this.appID = appID;
     }
@@ -100,6 +107,10 @@ public class Game {
         this.rating = rating;
     }
 
+    public void setRecommendationCount(int recommendationCount) {
+        this.recommendationCount = recommendationCount;
+    }
+
     public void printGame() {
         System.out.println(this.toString());
         System.out.println("");
@@ -114,6 +125,7 @@ public class Game {
         str += "$" + priceString.substring(0, priceString.length() - 2) + "." +
                 priceString.substring(priceString.length() - 2);
         str += "\n" + this.rating;
+        //str += "\n" + this.recommendationCount;
 
         return str;
 
