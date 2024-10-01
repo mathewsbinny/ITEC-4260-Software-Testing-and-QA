@@ -21,7 +21,7 @@ public class NewsTest {
     @Test
     public void testInsert() throws Exception {
         int before = getTableSize();
-        String sql = "INSERT INTO news VALUES(null,?,?)";
+        String sql = "insert into news values(null,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, "test");
         ps.setString(2, "test");
@@ -31,10 +31,11 @@ public class NewsTest {
         Assert.assertEquals(before + 1, after);
     }
 
+    //create a helper method that returns of the size of the table
     private int getTableSize() throws SQLException {
-        String sql = "SELECT COUNT(*) FROM news";
+        String sql = "select count(*) from news;";
         PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery(sql);
+        ResultSet resultSet = statement.executeQuery();
         resultSet.next();
         int size = resultSet.getInt(1);
         statement.close();

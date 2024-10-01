@@ -22,8 +22,8 @@ public class TuitionCalculatorTest {
 
     @Test
     public void testInstateTuition() {
-        //5,262 per year (two semesters) from US NEWS
-        //take average of 12,13,14,15 hours
+        // 5,262 per year (two semesters) from USNEWS
+        // take the average of 12, 13, 14, and 15 hours
 
         driver.get(TUITION_CALC_URL);
         WebElement inStateRadio = driver.findElement(By.id("inorout1"));
@@ -32,36 +32,35 @@ public class TuitionCalculatorTest {
         int thirteenHoursCost = getSemesterCostPerHour("13 hours");
         int fourteenHoursCost = getSemesterCostPerHour("14 hours");
         int fifteenHoursCost = getSemesterCostPerHour("15 hours");
-        double average = (twelveHoursCost + thirteenHoursCost + fourteenHoursCost + fifteenHoursCost / 4);
+        double average = (twelveHoursCost + thirteenHoursCost + fourteenHoursCost + fifteenHoursCost)/4.0;
         System.out.println(average);
         double expected = 5262.0;
         Assert.assertEquals(expected, average*2, 350);
     }
 
-    public static int getSemesterCostPerHour(String hours) {
-        WebElement inStateRadio = driver.findElement(By.id("inorout1"));
-        inStateRadio.click();
+    private static int getSemesterCostPerHour(String hours) {
         WebElement creditHours = driver.findElement(By.id("creditHOURS"));
         Select creditHoursSelect = new Select(creditHours);
         creditHoursSelect.selectByVisibleText(hours);
         WebElement semesterCost = driver.findElement(By.id("totalcost"));
         String cost = semesterCost.getAttribute("value");
-        return Integer.parseInt(cost.substring(1, cost.length()-3));
+        return Integer.parseInt(cost.substring(1,cost.length()-3));
     }
 
-    //TODO:
+    @Test
     public void testOutOfStateTuition() {
 
     }
 
-    //TODO:
+    @Test
     public void testFall2024TuitionBill() {
-
+        //$2000
     }
 
+
     @AfterClass
-    public static void tearDown() {
-        //Thread.sleep(6000);
-        driver.quit();
+    public static void tearDown() throws InterruptedException {
+        // Thread.sleep(6000);
+        // driver.close();
     }
 }
