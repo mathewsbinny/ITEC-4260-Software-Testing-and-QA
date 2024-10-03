@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import java.io.File;
@@ -94,12 +95,20 @@ public class MidtermTest {
 
     @Test
     public void YCombinatorTest() throws Exception {
+        // Initialize WebDriver (Assuming ChromeDriver here)
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the page
         driver.get("https://news.ycombinator.com");
-        List<WebElement> headlines = driver.findElement(By.name("a"));
-        Assert.assertEquals("The number of <a> elements is not 30", 30, headlines.size());
 
+        // Directly get the count of <a> elements without creating a list
+        int headlineCount = driver.findElements(By.className("titleline")).size();
+
+        // Perform assertion on the count of the <a> elements
+        Assert.assertEquals("The number of <a> elements is not 30", 30, headlineCount);
+
+        // Quit WebDriver
         driver.quit();
-
     }
 }
 
