@@ -42,5 +42,6 @@
     <orderEntry type="library" name="apache.commons.lang3" level="project" />
     <orderEntry type="library" name="xerial.sqlite.jdbc" level="project" />
     <orderEntry type="library" name="auto-service-annotations-1.1.1-sources" level="project" />
+    <orderEntry type="library" name="mockito.core" level="project" />
   </component>
 </module>
