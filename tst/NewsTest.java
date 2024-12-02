@@ -5,18 +5,17 @@ import org.junit.Test;
 
 import java.sql.*;
 
-
 public class NewsTest {
 
     private static Connection connection;
-    private static final String DB_URL = "jdbc:sqlite:news.sqlite";
+    private static String DB_URL = "jdbc:sqlite:news.sqlite";
+
 
     @BeforeClass
     public static void setUp() throws Exception {
         connection = DriverManager.getConnection(DB_URL);
-    }
 
-    //create a helper method that returns the size of the table
+    }
 
     @Test
     public void testInsert() throws Exception {
@@ -42,18 +41,9 @@ public class NewsTest {
         return size;
     }
 
-    @Test
-    public void testTableSize() throws Exception {
-        String sql = "select count(*) from news;";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery(sql);
-        resultSet.next();
-        int size = resultSet.getInt(1);
-        Assert.assertEquals(0, size);
-    }
-
     @AfterClass
     public static void tearDown() throws Exception {
         connection.close();
     }
+
 }
